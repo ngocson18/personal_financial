@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShareService } from './services/share.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'personal_financial';
+  title = 'coin-list';
+  isOpen = false;
+
+  constructor(
+    private shareService: ShareService
+  ) {
+    this.shareService.currentStatus.subscribe(isOpen => this.isOpen = isOpen);
+  }
 }
