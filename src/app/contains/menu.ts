@@ -1,0 +1,16 @@
+export const Menu = [
+    { id: 0, key:"overview", name: 'Overview', active: false, icon: 'fa fa-home' },
+    { id: 1, key:"outline", name: 'Outline', active: false, icon: 'fa fa-download' },
+    { id: 2, key:"transaction", name: 'Transaction', active: false, icon: '' },
+    { id: 3, key:"transaction-future", name: 'Giao dịch dự tính', active: false, icon: '' },
+    { id: 4, key:"account", name: 'Account', active: false, icon: '' },
+    { id: 5, key:"credit-card", name: 'Credit Card', active: false, icon: '' },
+    { id: 6, key:"budget", name: 'Budget', active: false, icon: '' },
+    { id: 7, key:"loan", name: 'Loan', active: false, icon: '' },
+    { id: 8, key:"chart", name: 'Chart', active: false, icon: '' },
+    { id: 9, key:"calendar", name: 'Calendar', active: false, icon: '' },
+    { id: 10, key:"tool", name: 'Tool', active: false, icon: '' },
+    { id: 11, key:"user", name: 'User', active: false, icon: '' },
+    { id: 12, key:"option", name: 'Option', active: false, icon: '' },
+    { id: 13, key:"setup", name: 'Setup', active: false, icon: '' },
+]

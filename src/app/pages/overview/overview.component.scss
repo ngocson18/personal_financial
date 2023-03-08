@@ -1,51 +1,37 @@
-.page-overview {
-    &__content {
-        background-color: #2196F3;
-        height: 100%;
-        .left {
-            .menu {
-                width: 20px;
-            }
-            .title {
-                font-size: 16px;
-                color: #fff;
-            }
-        }
-        .right {
-            .sync {
-                width: 20px;
-            }
-            .three-dot {
-                width: 6px;
-            }
-        }
-    }
-    &__overview {
+.wrapper {
+    background-color: #2196F3;
+    .page-overview__overview {
         background-color: #fff;
         border-radius: 15px;
+    
         .chart {
             .left {
                 width: 160px;
             }
+    
             .right {
                 .in {
                     color: green;
                 }
+    
                 .out {
                     color: red;
                 }
             }
         }
+    
         #overview-chart {
-            width: 260px !important;
+            width: 120px !important;
             height: 100px !important;
             left: -50px !important;
+    
             canvas {
                 position: absolute !important;
                 display: block;
                 box-sizing: border-box;
             }
         }
+    
         #chart {
             max-width: 380px;
             margin: 35px auto;

@@ -7,12 +7,18 @@ import { ShareService } from './services/share.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'coin-list';
+  title = 'Overview';
   isOpen = false;
 
   constructor(
     private shareService: ShareService
   ) {
     this.shareService.currentStatus.subscribe(isOpen => this.isOpen = isOpen);
+    this.shareService.currentTitle.subscribe(el => this.title = el);
+  }
+
+  openMenu(): void {
+    this.isOpen = !this.isOpen;
+    this.shareService.openMenu(this.isOpen);
   }
 }

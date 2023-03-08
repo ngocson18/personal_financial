@@ -1,0 +1,108 @@
+.chart {
+    .left {
+        width: 160px;
+    }
+
+    .right {
+        .in {
+            color: green;
+        }
+
+        .out {
+            color: red;
+        }
+    }
+}
+
+#overview-chart {
+    width: 260px !important;
+    height: 100px !important;
+    left: -50px !important;
+
+    canvas {
+        position: absolute !important;
+        display: block;
+        box-sizing: border-box;
+    }
+}
+
+#chart {
+    max-width: 380px;
+    margin: 35px auto;
+    padding: 0;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    background-color: #2196F3;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: #fff;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+    color: #000;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.name {
+    flex: 0 0 auto;
+    width: 100px;
+}
+
+.value {
+    flex: 1 1 auto;
+
+    select,
+    input {
+        height: 35px;
+    }
+}
+
+.example-tree-invisible {
+    display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.example-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 40px;
+}
+
+.example-tree div[role=group]>.mat-tree-node {
+    padding-left: 40px;
+}
+
+.btn-ct {
+    border: none;
+    background-color: transparent;
+}

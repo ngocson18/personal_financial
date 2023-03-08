@@ -1,14 +1,18 @@
-<div class="navbar-ct">
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+<nav id="sidebar" [class]="isOpen ? 'd-block' : 'd-none'">
+    <div class="custom-menu">
+        <img width="20" (click)="openMenu()" class="menu" src="assets/images/icons/menu.svg" alt="" />
     </div>
-    
-    <span onclick="openNav()">open</span>
-    
-    <div id="main">
+    <div class="img bg-wrap text-center py-4" >
+        <div class="user-logo">
+            <img width="50" class="rounded-circle ms-2" src="assets/images/demo.png" alt="" />
+            <h3 class="px-3 mt-2 text-white">Sơn Béo</h3>
+        </div>
     </div>
-</div>
+    <ul class="list-unstyled components mb-5">
+        <li [id]="'li-' + item.id" class="active" *ngFor="let item of menu">
+            <a [id]="'a-' + item.id" (click)="goTo(item.key , item.name)">
+                <span [class]="item.icon" class="me-1"></span>{{item.name}}
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -12,6 +12,11 @@ import { LoginComponent } from './pages/login/login.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { OutlineComponent } from './pages/outline/outline.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TransactionComponent } from './pages/transaction/transaction.component';
+import { AccountComponent } from './pages/account/account.component';
+import { CreditCreditcardComponent } from './pages/credit-creditcard/credit-creditcard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     ListComponent,
     LoginComponent,
     OverviewComponent,
-    SidenavComponent
+    SidenavComponent,
+    OutlineComponent,
+    TransactionComponent,
+    AccountComponent,
+    CreditCreditcardComponent
   ],
   imports: [
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerWhenStable:3000' }),
@@ -28,6 +37,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     HttpClientModule,
     MaterialModule,
     NgApexchartsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

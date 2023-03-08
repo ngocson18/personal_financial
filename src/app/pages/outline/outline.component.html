@@ -1,0 +1,121 @@
+<div>
+    <div class="tab">
+        <button class="tablinks" [class]="curentTab === 'outline' ? 'active' : ''"
+            (click)="openCity($event, 'outline')">Sơ lược</button>
+        <button class="tablinks" [class]="curentTab === 'categories' ? 'active' : ''"
+            (click)="openCity($event, 'categories')">Các hạng mục</button>
+    </div>
+
+    <div class="px-2 py-3">
+        <div id="outline" class="tabcontent" class="" [class]="curentTab === 'outline' ? 'd-block' : 'd-none'">
+            <div>
+                <div><strong>Tháng 3 2023</strong></div>
+                <div class="chart d-flex flex-row">
+                    <div class="left">
+                        <div class="chart-container" style="position: relative; width: 250px; left: -50px">
+                            <canvas id="month-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="right d-flex flex-column justify-content-center">
+                        <div class="d-flex flex-row justify-content-between">
+                            <div> Thu nhập:&nbsp;&nbsp; </div>
+                            <div class="in"> 0đ</div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between my-1">
+                            <div> Chi phí:&nbsp;&nbsp; </div>
+                            <div class="out"> 0đ</div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div> Tổng cộng: &nbsp;&nbsp; </div>
+                            <div class="count"> 0đ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="categories" class="tabcontent" class="" [class]="curentTab === 'categories' ? 'd-block' : 'd-none'">
+            <div>
+                <div class="text-center">So sánh giá trị các hạng mục</div>
+                <div>
+                    <div class="d-flex flex-row mb-1 align-items-center">
+                        <div class="name">Loại</div>
+                        <div class="value">
+                            <select class="form-control">
+                                <option>Thu nhập</option>
+                                <option>Chi phí</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-1 align-items-center">
+                        <div class="name">Tài khoản</div>
+                        <div class="value">
+                            <select class="form-control">
+                                <option>Tất cả</option>
+                                <option>Thẻ</option>
+                                <option>Ví</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-1 align-items-center">
+                        <div class="name">Từ</div>
+                        <div class="value">
+                            <input type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-1 align-items-center">
+                        <div class="name">Đến</div>
+                        <div class="value">
+                            <input type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <!-- --------- -->
+
+                    <div class="d-flex flex-row mb-1">
+                        <div class="name"></div>
+                        <div class="value">
+                            <select name="" id="" class="form-control">
+                                <option>Khác</option>
+                                <option>7 ngày qua</option>
+                                <option>Tháng này</option>
+                                <option>31 ngày trước</option>
+                                <option>Tháng trước</option>
+                                <option>Năm nay</option>
+                                <option>365 ngày qua</option>
+                                <option>Năm ngoái</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail">
+                <div>Tổng cộng 125000000 đ</div>
+                <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+                    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+                        <div class="d-flex flex-row">
+                            <img width="40" class="me-1" src="assets/images/demo.png" alt="" />
+                            <div class="d-flex flex-column">
+                                <div>{{node.name}}</div>
+                                <div>12000000 đ</div>
+                            </div>
+                        </div>
+                    </mat-tree-node>
+                    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+                        <div class="mat-tree-node">
+                            <button class="btn-ct" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+                                <mat-icon class="mat-icon-rtl-mirror">
+                                    {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                                </mat-icon>
+                            </button>
+                            <img width="40" class="me-1" src="assets/images/demo.png" alt="" />
+                            {{node.name}}
+                        </div>
+                        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+                            <ng-container matTreeNodeOutlet></ng-container>
+                        </div>
+                    </mat-nested-tree-node>
+                </mat-tree>
+            </div>
+        </div>
+    </div>
+</div>

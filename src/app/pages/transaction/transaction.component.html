@@ -1,0 +1,74 @@
+<div class="transaction-page">
+    <div>
+        <div class="time px-2 py-3 d-flex flex-row justify-content-between align-items-center">
+            <img width="15" src="assets/images/icons/left.svg" />
+            <div class="text-white">
+                <select name="" id="" class="form-control border-0">
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                </select>
+            </div>
+            <img width="15" src="assets/images/icons/right.svg" />
+        </div>
+    </div>
+    <div class=" py-1 content">
+        <div class="text-center">Tháng 3</div>
+        <div class="text-end mb-1 mt-1 px-2">Tổng cộng: <span [class]="">-5.000.000 đ</span></div>
+
+        <div class="d-flex flex-column">
+            <div (click)="detail(detailTemplate, 1)"
+                class="out detail px-2 py-2 d-flex flex-row justify-content-between align-items-center">
+                <div class="avatar">
+                    <img width="50" src="assets/images/demo.png" />
+                </div>
+                <div class="cate">
+                    <div>Nhà cửa</div>
+                    <small>Thẻ</small>
+                </div>
+                <div class="info text-end border-right-custom">
+                    <div>-500000 đ</div>
+                    <small>07/03/2022</small>
+                </div>
+            </div>
+            <div (click)="detail(detailTemplate, 2)"
+                class="in detail px-2 py-2 d-flex flex-row justify-content-between align-items-center">
+                <div class="avatar">
+                    <img width="50" src="assets/images/demo.png" />
+                </div>
+                <div class="cate">
+                    <div>Nhà cửa</div>
+                    <small>Thẻ</small>
+                </div>
+                <div class="info text-end border-right-custom">
+                    <div>-500000 đ</div>
+                    <small>07/03/2022</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #detailTemplate>
+    <div mat-dialog-content>
+        <div class="top d-flex flex-row justify-content-between align-items-center">
+            <div>-5.000.000 đ</div>
+            <div>07/03/2023</div>
+        </div>
+        <div>
+            <div class="mb-1 d-flex flex-row justify-content-start align-items-center">
+                <img width="50" src="assets/images/demo.png" class="me-2" />
+                <div>Nhà cửa</div>
+            </div>
+            <div class="mb-1">Tài khoản: thẻ</div>
+            <div class="mb-1">Đến: -</div>
+            <div class="mb-1">Ghi chú: -</div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button>Clone</button>
+        <button mat-button>Edit</button>
+        <button mat-button>Delete</button>
+    </div>
+</ng-template>

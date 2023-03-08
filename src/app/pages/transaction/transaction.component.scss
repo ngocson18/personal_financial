@@ -1,0 +1,29 @@
+.transaction-page {
+    .time {
+        background-color: #2196F3;
+    }
+    .content {
+        background-color: #f3f3f3;
+        height: 100%;
+    }
+    .detail {
+        background-color: #fff;
+        .avatar {
+            flex: 0 0 auto;
+            width: 60px;
+        }
+        .cate {
+            flex: 0 0 auto;
+            width: 130px;
+        }
+        .info {
+            flex: 1 1 auto;
+        }
+    }
+    .in {
+        border-right: 4px solid green;
+    }
+    .out {
+        border-right: 4px solid red;
+    }
+}

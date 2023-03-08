@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js/auto';
+import { DataModel } from 'src/app/models/chart';
+import { CreateChartService } from 'src/app/services/create-chart.service';
 import { ShareService } from 'src/app/services/share.service';
 @Component({
   selector: 'app-overview',
@@ -12,48 +13,42 @@ export class OverviewComponent implements OnInit {
   public chartSurplus: any;
   public isOpen = false;
   constructor(
-    private shareService: ShareService
+    private shareService: ShareService,
+    private createChartService: CreateChartService,
   ) {
-
+    this.shareService.currentStatus.subscribe(el => this.isOpen = el);
   }
   ngOnInit(): void {
+    this.shareService.openMenu(false);
     this.createOverViewChart();
     this.createLast7DaysChart();
     this.createSurplusChart();
   }
 
   createOverViewChart(): void {
-  
-    this.chartOverview = new Chart('overview-chart', {
-      type: 'doughnut',
-      data: {// values on X-Axis
-        // labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-				// 				 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
-	       datasets: [
-          {
-            label: "Sales",
-            data: ['467','576', '572'],
-              backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-          },
-        ]
-      },
-      options: {
-        aspectRatio:2.5
-      }
-      
-    });
+    const data: DataModel = {
+      labels: [
+      ],
+      datasets: [
+        {
+          label: "",
+          data: ['300', '300', '300'],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+        },
+      ]
+    }
+    this.chartOverview = this.createChartService.createChart('overview-chart', 'doughnut', data, {});
   }
 
   createLast7DaysChart(): void {
     const data = {
       labels: ['1', '2', '3', '4', '5', '6', '7'],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'First',
         data: [65, 59, 80, 81, 56, 55, 40],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -76,20 +71,19 @@ export class OverviewComponent implements OnInit {
         borderWidth: 1
       }]
     };
-    this.chartLast7Days = new Chart("out-chart", {
-      type: 'bar',
-      data: data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+
+    const options = {
+      scales: {
+        y: {
+          beginAtZero: true
         }
-      },
-    });
+      }
+    };
+
+    this.chartLast7Days = this.createChartService.createChart('out-chart', 'bar', data, options);
   }
 
-  createSurplusChart() : void {
+  createSurplusChart(): void {
     const data = {
       labels: ['1', '2', '3', '4', '5', '6', '7'],
       datasets: [{
@@ -98,22 +92,17 @@ export class OverviewComponent implements OnInit {
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
         tension: 0.1
-    }]};
-    this.chartSurplus = new Chart("surplus-chart", {
-      type: 'line',
-      data: data,
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      },
-    });
-  }
+      }]
+    };
 
-  openMenu(): void {
-    this.isOpen = true;
-    this.shareService.openMenu(this.isOpen);
+    const option = {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+    this.chartSurplus = this.createChartService.createChart('surplus-chart', 'line', data, option)
   }
 }
+
