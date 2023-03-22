@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareService } from 'src/app/services/share.service';
-import { CreateChartService } from 'src/app/services/create-chart.service';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { DataModel } from 'src/app/models/chart';
 
 const TREE_DATA: FoodNode[] = [
   {
@@ -32,13 +32,31 @@ const TREE_DATA: FoodNode[] = [
 
 export class OutlineComponent implements OnInit {
   public isOpen = false;
-  public chartMonth: any;
   curentTab: string = '';
   treeControl = new NestedTreeControl<FoodNode>(node => node.children);
   dataSource = new MatTreeNestedDataSource<FoodNode>();
+
+  public data: DataModel = {
+    labels: [
+    ],
+    datasets: [
+      {
+        label: "",
+        data: ['300', '300', '300'],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)'
+        ],
+      },
+    ]
+  }
+
+  public option = {
+    aspectRatio: 2.5
+  }
   constructor(
     private shareService: ShareService,
-    private createChartService: CreateChartService
   ) {
     this.shareService.currentStatus.subscribe(el => this.isOpen = el);
     this.dataSource.data = TREE_DATA;
@@ -46,29 +64,6 @@ export class OutlineComponent implements OnInit {
 
   hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
   ngOnInit(): void {
-    this.createMonthChart();
-  }
-
-  createMonthChart(): void {
-    const data = {
-      datasets: [
-        {
-          label: "Sales",
-          data: ['467', '576', '572'],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
-          hoverOffset: 4
-        },
-      ]
-    }
-
-    const option = {
-      aspectRatio: 2.5
-    }
-    this.chartMonth = this.createChartService.createChart('month-chart', 'doughnut', data, option)
   }
 
   openCity(event: any, tab: string): void {

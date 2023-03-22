@@ -5,8 +5,8 @@
         </div>
         <div class="chart d-flex flex-row">
             <div class="left">
-                <div class="chart-container" style="position: relative; width: 66vw; left: 0px; bottom: 5px">
-                    <canvas id="overview-chart"></canvas>
+                <div class="chart-container">
+                    <canvas class="chart mt-3" style="width: 200px" height="99vw" appChart [type]="'doughnut'" [data]="dataOverview" id="out-chart"></canvas>
                 </div>
             </div>
             <div class="right d-flex flex-column justify-content-center">
@@ -59,7 +59,7 @@
         </div>
         <div class="chart d-flex flex-column text-center">
             <div class="chart-container">
-                <canvas id="out-chart"></canvas>
+                <canvas class="chart mt-3" style="max-height: 400px" appChart [type]="'bar'" [data]="dataOut" [options]="optionsOut" id="out-chart"></canvas>
             </div>
             <span>Không tìm tháy giáo dịch</span>
         </div>
@@ -71,7 +71,7 @@
         <div>Tổng số tiền dư đang sở hữu: 123000000 đ</div>
         <div class="chart d-flex flex-column text-center">
             <div class="chart-container">
-                <canvas id="surplus-chart"></canvas>
+                <canvas class="chart mt-3"  style="max-height:300px"  appChart [type]="'line'" [data]="dataSurplus"  [options]="optionsSurplus"  id="surplus-chart"></canvas>
             </div>
         </div>
     </div>

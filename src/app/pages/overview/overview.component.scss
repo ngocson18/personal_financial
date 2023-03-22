@@ -5,9 +5,8 @@
         border-radius: 15px;
     
         .chart {
-            .left {
-                width: 160px;
-            }
+            // .left {
+            // }
     
             .right {
                 .in {
@@ -18,24 +17,6 @@
                     color: red;
                 }
             }
-        }
-    
-        #overview-chart {
-            width: 120px !important;
-            height: 100px !important;
-            left: -50px !important;
-    
-            canvas {
-                position: absolute !important;
-                display: block;
-                box-sizing: border-box;
-            }
-        }
-    
-        #chart {
-            max-width: 380px;
-            margin: 35px auto;
-            padding: 0;
         }
     }
 }
