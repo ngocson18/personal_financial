@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TransactionComponent } from './pages/transaction/transaction.component';
 import { AccountComponent } from './pages/account/account.component';
 import { CreditCreditcardComponent } from './pages/credit-creditcard/credit-creditcard.component';
+import { SharedDirectivesModule } from './directives/share-directives.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CreditCreditcardComponent } from './pages/credit-creditcard/credit-cred
     MaterialModule,
     NgApexchartsModule,
     NgbModule,
+    SharedDirectivesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
