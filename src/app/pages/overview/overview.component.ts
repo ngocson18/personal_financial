@@ -14,11 +14,10 @@ export class OverviewComponent implements OnInit {
     datasets: [
       {
         label: "",
-        data: ['300', '300', '300'],
+        data: ['300', '300'],
         backgroundColor: [
           'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)'
         ],
       },
     ]
@@ -84,6 +83,10 @@ export class OverviewComponent implements OnInit {
   }
   ngOnInit(): void {
     this.shareService.openMenu(false);
+  }
+
+  getIncome(): void {
+    
   }
 }
 

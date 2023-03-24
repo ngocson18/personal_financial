@@ -18,6 +18,7 @@ import { TransactionComponent } from './pages/transaction/transaction.component'
 import { AccountComponent } from './pages/account/account.component';
 import { CreditCreditcardComponent } from './pages/credit-creditcard/credit-creditcard.component';
 import { SharedDirectivesModule } from './directives/share-directives.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,11 @@ import { SharedDirectivesModule } from './directives/share-directives.module';
     NgbModule,
     SharedDirectivesModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LocationStrategy , useClass: HashLocationStrategy // fix when 404 refresh page
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
