@@ -10,7 +10,6 @@ import { MaterialModule } from './material.module';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { OverviewComponent } from './pages/overview/overview.component';
-import { NgApexchartsModule } from 'ng-apexcharts';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { OutlineComponent } from './pages/outline/outline.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,6 +18,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { CreditCreditcardComponent } from './pages/credit-creditcard/credit-creditcard.component';
 import { SharedDirectivesModule } from './directives/share-directives.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -34,13 +34,13 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
   ],
   imports: [
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: 'registerWhenStable:3000' }),
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    NgApexchartsModule,
     NgbModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    RouterModule
   ],
   providers: [
     {
